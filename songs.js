@@ -28,7 +28,7 @@ const SONGS = [
   { file: "Speak Now - WENDY.mp3", title: "Speak Now", original: "Taylor Swift", year: 2014, program: "SMROOKIES" },
   { file: "Because I love you - WENDY.mp3", title: "Because I love you", original: "WENDY", year: 2014, program: "SMROOKIES" },
   { file: "Goodbye - SEULGI, WENDY, JOY.mp3", title: "Goodbye", original: "Bae Ho", year: 2015, program: "Immortal Songs 2" },
-  { file: "76 – 70 = Love - WENDY.mp3", title: "76 – 70 = Love", original: "Seo Ji-won", year: 2015, program: "CPR Heart Song" },
+  { file: "76 - 70 = Love - WENDY.mp3", title: "76 – 70 = Love", original: "Seo Ji-won", year: 2015, program: "CPR Heart Song" },
   { file: "The Late Regret - WENDY.mp3", title: "The Late Regret", original: "BoBo", year: 2016, program: "King of Mask Singer" },
   { file: "Beautiful Seed - WENDY.mp3", title: "Beautiful Seed", original: "Corrinne May", year: 2017, program: "Music Bank in Singapore" },
   { file: "Shallow - WENDY.mp3", title: "Shallow", original: "Bradley Cooper and Lady Gaga", year: 2019, program: "Weekly Idol" },
