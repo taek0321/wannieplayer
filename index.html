@@ -298,6 +298,23 @@ ul.progs { list-style: none; margin: 0; padding: 0; }
 .toplist .ct { flex: none; color: var(--muted); font-size: 0.85rem; font-weight: 700; }
 .topnote { color: var(--muted); font-size: 0.82rem; margin: 12px 0 0; }
 .topempty { color: var(--muted); padding: 18px 2px; }
+.grouphead { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin: 18px 0 0; padding-bottom: 6px; border-bottom: 2px solid var(--accent); }
+.grouphead span { color: var(--muted); font-size: 0.85rem; }
+.covlist { list-style: none; margin: 0; padding: 0; }
+.covlist > li.cov { border-bottom: 1px solid var(--line); }
+.covhead { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; padding: 12px 2px; }
+.covhead .rk { flex: none; width: 28px; text-align: center; font-weight: 800; font-size: 1.1rem; color: var(--accent); }
+.covhead .tt { flex: 1; min-width: 0; }
+.covhead .tt b { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.covhead .tt > span { color: var(--muted); font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+.covhead .ct { flex: none; color: var(--muted); font-size: 0.85rem; font-weight: 700; white-space: nowrap; }
+.covhead .chev { flex: none; color: var(--muted); font-size: 1.3rem; transition: transform 0.2s; }
+li.cov.open .chev { transform: rotate(90deg); }
+li.cov.open .covhead .rk, li.cov.open .covhead b { color: var(--accent); }
+.covbody { padding: 0 0 12px; border-top: 1px dashed var(--line); }
+.covbody .topbtns { margin: 10px 0 0; }
+.covbody ol.songs { margin-top: 0; }
+@media (prefers-reduced-motion: reduce) { .covhead .chev { transition: none; } }
 .bkbox { margin-top: 26px; padding: 14px 16px; border-radius: 16px; border: 1px dashed var(--line); }
 .bkbox h3 { margin: 0 0 4px; font-size: 1rem; }
 .bkbox p { margin: 0 0 10px; color: var(--muted); font-size: 0.88rem; }
@@ -661,7 +678,7 @@ const PAUSE_PATH = "M6 5h4v14H6zm8 0h4v14h-4z";
 // "bottom" (above the version line), "search" (when a search finds nothing)
 const REQUEST_URL = "https://tally.so/r/RWWWr4";
 const REQUEST_SPOTS = ["top"];
-const VERSION = "2026-10-30 v43";
+const VERSION = "2026-11-19 v44";
 const UI = {
   en: {
     share: "Share song", linkCopied: "Link copied", shareText: "{title} · Wannie’s Music Archive", sharedReady: "Shared song ready. Tap play to listen",
@@ -686,6 +703,7 @@ const UI = {
     reqTop: "🩵 Request a song", reqFind: "Can’t find a song? ", reqHere: "Request it here", reqWant: "Want it added? ",
     selSelect: "Select", selN: "{n} selected", selAll: "Select all", selAdd: "Add to playlist", selCancel: "Cancel", selSheet: "Add {n} songs to a playlist",
     nsTitle: "🆕 {n} new songs added", nsTitle1: "🆕 1 new song added", nsMore: "and {n} more", nsBtn: "See new songs", nsBadge: "NEW", nsBar: "Showing {n} new songs · last 30 days", nsAll: "Show all songs",
+    tabNew: "New", newIntro: "Songs added in the last 30 days, newest first.", newGroup: "Added {date}", newEmpty: "No new songs in the last 30 days.", tabCovers: "Most Covered", covIntro: "Songs by other artists that Wendy has recorded {n} or more times. Tap a song to see every recording.", covRec: "{n} recordings",
     tabTop: "My Top 10", topTitle: "My Top 10 · {y}", topTotal: "You played {n} songs in {y}", topTotal1: "You played 1 song in {y}", topDistinct: "{n} different songs", topDistinct1: "1 different song", topPlays: "{n} plays", topPlay1: "1 play", topEmpty: "No plays counted in {y} yet. A song counts after 30 seconds of listening.", topPlayAll: "▶ Play all", topShare: "Share my Top 10", topNote: "Counted on this device only, from the day this feature was added. Nothing is sent anywhere.", shTitle: "Share my Top 10", shSave: "Long-press the picture to save it.", shShare: "Share", shCopy: "Copy text", shCopied: "Copied!", shDone: "Done", bkHead: "Backup & restore", bkInfo: "Move your likes, playlists and Top 10 to another phone or address.", bkMake: "Create backup code", bkLoad: "Restore from code", bkMakeTitle: "Your backup code", bkMakeInfo: "Copy this code and keep it somewhere safe (for example in your notes). Paste it under “Restore from code” on the other phone.", bkLoadTitle: "Restore from code", bkLoadInfo: "Paste a backup code. Likes, playlists and Top 10 are added to what is already here; nothing is deleted.", bkPaste: "Paste your code here", bkRestore: "Restore", bkOk: "Restored! Your likes, playlists and Top 10 have been added.", bkBad: "This code doesn’t look right. Please copy the whole code and try again."
   },
   ko: {
@@ -711,6 +729,7 @@ const UI = {
     reqTop: "🩵 노래 신청", reqFind: "찾는 노래가 없나요? ", reqHere: "여기서 신청하기", reqWant: "이 노래가 추가되길 원하나요? ",
     selSelect: "선택", selN: "{n}곡 선택됨", selAll: "전체 선택", selAdd: "플레이리스트에 추가", selCancel: "취소", selSheet: "{n}곡을 플레이리스트에 추가",
     nsTitle: "🆕 새로운 곡 {n}곡이 추가됐어요", nsTitle1: "🆕 새로운 곡 1곡이 추가됐어요", nsMore: "외 {n}곡", nsBtn: "새 곡 보기", nsBadge: "NEW", nsBar: "최근 30일 동안 추가된 {n}곡", nsAll: "전체 곡 보기",
+    tabNew: "새로운 곡", newIntro: "최근 30일 동안 추가된 곡이에요. 최신순으로 보여요.", newGroup: "{date} 추가", newEmpty: "최근 30일 동안 추가된 곡이 없어요.", tabCovers: "최다 커버", covIntro: "웬디가 {n}번 이상 부른 다른 가수의 곡이에요. 곡을 누르면 모든 버전을 볼 수 있어요.", covRec: "{n}개 버전",
     tabTop: "나의 Top 10", topTitle: "나의 Top 10 · {y}", topTotal: "{y}년에 {n}곡을 들었어요", topDistinct: "서로 다른 {n}곡", topPlays: "{n}회", topPlay1: "1회", topEmpty: "{y}년에 기록된 재생이 아직 없어요. 30초 이상 들은 곡부터 기록돼요.", topPlayAll: "▶ 전체 재생", topShare: "나의 Top 10 공유", topNote: "이 기기에서만, 이 기능이 추가된 날부터 기록돼요. 어디에도 전송되지 않아요.", shTitle: "나의 Top 10 공유", shSave: "이미지를 길게 눌러 저장하세요.", shShare: "공유", shCopy: "텍스트 복사", shCopied: "복사했어요!", shDone: "완료", bkHead: "백업 및 복원", bkInfo: "좋아요, 플레이리스트, Top 10을 다른 휴대폰이나 주소로 옮길 수 있어요.", bkMake: "백업 코드 만들기", bkLoad: "코드로 복원", bkMakeTitle: "백업 코드", bkMakeInfo: "이 코드를 복사해 안전한 곳(예: 메모)에 보관하세요. 다른 휴대폰에서 “코드로 복원”에 붙여 넣으면 돼요.", bkLoadTitle: "코드로 복원", bkLoadInfo: "백업 코드를 붙여 넣으세요. 좋아요, 플레이리스트, Top 10이 지금 있는 것에 더해지며, 아무것도 삭제되지 않아요.", bkPaste: "여기에 코드를 붙여 넣으세요", bkRestore: "복원", bkOk: "복원했어요! 좋아요, 플레이리스트, Top 10이 추가됐어요.", bkBad: "코드가 올바르지 않아요. 코드 전체를 복사해서 다시 시도해 주세요."
   },
   "zh-Hans": {
@@ -736,6 +755,7 @@ const UI = {
     reqTop: "🩵 点歌", reqFind: "找不到想听的歌？", reqHere: "在这里点歌", reqWant: "想加入这首歌吗？",
     selSelect: "选择", selN: "已选 {n} 首", selAll: "全选", selAdd: "加入歌单", selCancel: "取消", selSheet: "将 {n} 首歌加入歌单",
     nsTitle: "🆕 新增了 {n} 首歌", nsTitle1: "🆕 新增了 1 首歌", nsMore: "等 {n} 首", nsBtn: "查看新歌", nsBadge: "NEW", nsBar: "正在显示最近 30 天新增的 {n} 首歌", nsAll: "显示全部歌曲",
+    tabNew: "新歌", newIntro: "最近 30 天新增的歌曲，最新的在前。", newGroup: "{date} 新增", newEmpty: "最近 30 天没有新增歌曲。", tabCovers: "最多翻唱", covIntro: "Wendy 唱过 {n} 次或以上的其他歌手的歌。点击歌曲查看所有版本。", covRec: "{n} 个版本",
     tabTop: "我的 Top 10", topTitle: "我的 Top 10 · {y}", topTotal: "{y} 年你听了 {n} 首歌", topDistinct: "共 {n} 首不同的歌", topPlays: "{n} 次", topPlay1: "1 次", topEmpty: "{y} 年还没有记录。一首歌听满 30 秒才会被记录。", topPlayAll: "▶ 全部播放", topShare: "分享我的 Top 10", topNote: "只记录在这台设备上，从加入此功能的那天开始。不会上传到任何地方。", shTitle: "分享我的 Top 10", shSave: "长按图片即可保存。", shShare: "分享", shCopy: "复制文字", shCopied: "已复制！", shDone: "完成", bkHead: "备份与恢复", bkInfo: "把你的喜欢、歌单和 Top 10 转移到另一台手机或另一个网址。", bkMake: "生成备份码", bkLoad: "用备份码恢复", bkMakeTitle: "你的备份码", bkMakeInfo: "复制这串备份码并妥善保存（例如存进备忘录）。在另一台手机的“用备份码恢复”里粘贴即可。", bkLoadTitle: "用备份码恢复", bkLoadInfo: "粘贴备份码。喜欢、歌单和 Top 10 会加入现有的记录，不会删除任何内容。", bkPaste: "在这里粘贴备份码", bkRestore: "恢复", bkOk: "恢复成功！你的喜欢、歌单和 Top 10 已加入。", bkBad: "备份码似乎不正确。请复制完整的备份码后再试。"
   },
   "zh-Hant": {
@@ -761,6 +781,7 @@ const UI = {
     reqTop: "🩵 點歌", reqFind: "找不到想聽的歌？", reqHere: "在這裡點歌", reqWant: "想加入這首歌嗎？",
     selSelect: "選擇", selN: "已選 {n} 首", selAll: "全選", selAdd: "加入歌單", selCancel: "取消", selSheet: "將 {n} 首歌加入歌單",
     nsTitle: "🆕 新增了 {n} 首歌", nsTitle1: "🆕 新增了 1 首歌", nsMore: "等 {n} 首", nsBtn: "查看新歌", nsBadge: "NEW", nsBar: "正在顯示最近 30 天新增的 {n} 首歌", nsAll: "顯示全部歌曲",
+    tabNew: "新歌", newIntro: "最近 30 天新增的歌曲，最新的在前。", newGroup: "{date} 新增", newEmpty: "最近 30 天沒有新增歌曲。", tabCovers: "最多翻唱", covIntro: "Wendy 唱過 {n} 次或以上的其他歌手的歌。點擊歌曲查看所有版本。", covRec: "{n} 個版本",
     tabTop: "我的 Top 10", topTitle: "我的 Top 10 · {y}", topTotal: "{y} 年你聽了 {n} 首歌", topDistinct: "共 {n} 首不同的歌", topPlays: "{n} 次", topPlay1: "1 次", topEmpty: "{y} 年還沒有紀錄。一首歌聽滿 30 秒才會被記錄。", topPlayAll: "▶ 全部播放", topShare: "分享我的 Top 10", topNote: "只記錄在這台裝置上，從加入此功能的那天開始。不會上傳到任何地方。", shTitle: "分享我的 Top 10", shSave: "長按圖片即可儲存。", shShare: "分享", shCopy: "複製文字", shCopied: "已複製！", shDone: "完成", bkHead: "備份與還原", bkInfo: "把你的喜歡、歌單和 Top 10 轉移到另一支手機或另一個網址。", bkMake: "產生備份碼", bkLoad: "用備份碼還原", bkMakeTitle: "你的備份碼", bkMakeInfo: "複製這串備份碼並妥善保存（例如存進備忘錄）。在另一支手機的「用備份碼還原」裡貼上即可。", bkLoadTitle: "用備份碼還原", bkLoadInfo: "貼上備份碼。喜歡、歌單和 Top 10 會加入現有的紀錄，不會刪除任何內容。", bkPaste: "在這裡貼上備份碼", bkRestore: "還原", bkOk: "還原成功！你的喜歡、歌單和 Top 10 已加入。", bkBad: "備份碼似乎不正確。請複製完整的備份碼後再試。"
   }
 };
@@ -935,7 +956,7 @@ $("lang").addEventListener("change", applyThemeText);
 
 // ---------- Rendering ----------
 function renderTabs() {
-  const tabs = [["all", t("tabAll")], ["programs", t("tabPrograms")], ["liked", t("tabLiked") + " " + (likes.size || "")], ["lists", t("tabLists") + " " + (playlists.length || "")], ["top", t("tabTop")]];
+  const tabs = [["all", t("tabAll")], ["new", t("tabNew") + " " + (recentNew.length || "")], ["programs", t("tabPrograms")], ["covers", t("tabCovers")], ["liked", t("tabLiked") + " " + (likes.size || "")], ["lists", t("tabLists") + " " + (playlists.length || "")], ["top", t("tabTop")]];
   const nav = $("tabs"); nav.innerHTML = "";
   for (const [key, label] of tabs) {
     const b = el("button", "tab", label.trim());
@@ -1115,6 +1136,83 @@ function renderPrograms(c) {
   c.append(ul);
 }
 
+// ---------- New tab: everything added in the last 30 days, grouped by date ----------
+function renderNew(c) {
+  if (!recentNew.length) { c.append(el("p", "empty", t("newEmpty"))); return; }
+  c.append(el("p", "intro", t("newIntro")));
+  visible = recentNew.map(s => s.i);
+  const pa = el("button", "btn", t("topPlayAll"));
+  pa.onclick = () => { setQueue(visible); playSong(visible[0], true); };
+  const bt = el("div", "topbtns"); bt.append(pa); c.append(bt);
+  const groups = new Map();
+  recentNew.forEach(s => { if (!groups.has(s.added)) groups.set(s.added, []); groups.get(s.added).push(s); });
+  for (const [d, list] of groups) {
+    const date = new Date(d + "T00:00:00").toLocaleDateString(lang, { year: "numeric", month: "short", day: "numeric" });
+    const h = el("div", "grouphead"); h.append(el("b", null, t("newGroup", { date })), el("span", null, songsN(list.length)));
+    c.append(h);
+    const ol = el("ol", "songs");
+    list.forEach(s => ol.append(songRow(s, null)));
+    c.append(ol);
+  }
+  markCurrent();
+}
+
+// ---------- Most Covered tab: other artists' songs Wendy recorded COVER_MIN+ times ----------
+const COVER_MIN = 3;
+const OWN_SONG = /wendy|red velvet|seulgi|irene|joy|yeri/i;           // her own and Red Velvet songs are left out
+const VERSION_TAG = /\s*\((\d{6}|[^)]*ver\.?|inst\.?|v\d|knowing bros|smtown[^)]*|fantastic duo \d|with [^)]*)\)/gi;
+const coverBase = t => t.replace(VERSION_TAG, "").replace(/\s+-\s+wendy.*$/i, "").trim();
+const coverKey = s => (coverBase(s.title) + "|" + (s.original || "")).toLowerCase().replace(/[^a-z0-9가-힣|]/g, "");
+let coverOpen = "";
+function coverGroups() {
+  const g = new Map();
+  for (const s of songs) {
+    if (!s.original || OWN_SONG.test(s.original) || /\(compilation\)/i.test(s.title)) continue;
+    const k = coverKey(s);
+    if (!g.has(k)) g.set(k, []);
+    g.get(k).push(s);
+  }
+  return [...g].filter(([, v]) => v.length >= COVER_MIN).map(([k, v]) => {
+    v.sort((a, b) => yearKey(a.year) - yearKey(b.year) || a.i - b.i);
+    const rep = v.find(s => coverBase(s.title) === s.title) || v[0];
+    return { k, list: v, rep, latest: Math.max(...v.map(s => yearKey(s.year))) };
+  }).sort((a, b) => b.list.length - a.list.length || b.latest - a.latest || coverBase(dTitle(a.rep)).localeCompare(coverBase(dTitle(b.rep)), lang));
+}
+function renderCovers(c) {
+  c.append(el("p", "intro", t("covIntro", { n: COVER_MIN })));
+  const groups = coverGroups();
+  const ol = el("ol", "covlist");
+  let rank = 0, prev = -1;
+  groups.forEach((g, i) => {
+    if (g.list.length !== prev) { rank = i + 1; prev = g.list.length; }
+    const li = el("li", "cov" + (coverOpen === g.k ? " open" : ""));
+    const head = el("button", "covhead");
+    const tt = el("div", "tt");
+    tt.append(el("b", null, coverBase(dTitle(g.rep))), el("span", null, t("originalBy", { name: dSinger(g.rep) })));
+    const tg = el("div", "tags toptags");
+    [...new Set(g.list.map(s => s.year))].forEach(y => tg.append(el("span", "tag year", dYear(y))));
+    tt.append(tg);
+    head.append(el("span", "rk", String(rank)), tt, el("span", "ct", t("covRec", { n: g.list.length })), el("span", "chev", "›"));
+    head.setAttribute("aria-expanded", String(coverOpen === g.k));
+    head.onclick = () => { coverOpen = coverOpen === g.k ? "" : g.k; render(); };
+    li.append(head);
+    if (coverOpen === g.k) {
+      visible = g.list.map(s => s.i);
+      const box = el("div", "covbody");
+      const pa = el("button", "btn", t("topPlayAll"));
+      pa.onclick = () => { setQueue(visible); playSong(visible[0], true); };
+      const bt = el("div", "topbtns"); bt.append(pa); box.append(bt);
+      const sl = el("ol", "songs");
+      g.list.forEach(s => sl.append(songRow(s, null)));
+      box.append(sl);
+      li.append(box);
+    }
+    ol.append(li);
+  });
+  c.append(ol);
+  markCurrent();
+}
+
 function renderPlaylistHead(c, pl) {
   const head = el("div", "plhead");
   const back = el("button", "back", t("allLists"));
@@ -1145,8 +1243,8 @@ function render() {
   const pl = currentPlaylist();
   if (view.startsWith("pl:") && !pl) view = "lists";
 
-  const showList = view !== "lists" && view !== "programs" && view !== "top";
-  $("toolbar").style.display = view === "top" ? "none" : "";
+  const showList = !["lists", "programs", "top", "new", "covers"].includes(view);
+  $("toolbar").style.display = ["top", "new", "covers"].includes(view) ? "none" : "";
   $("toolbar").hidden = !showList;
   $("sort").hidden = !!pl;
   $("filters").hidden = !showList || !!pl;
@@ -1154,6 +1252,8 @@ function render() {
   if (view === "lists") { renderPlaylists(c); return; }
   if (view === "top") { renderTop(c); return; }
   if (view === "programs") { renderPrograms(c); return; }
+  if (view === "new") { renderNew(c); return; }
+  if (view === "covers") { renderCovers(c); return; }
   if (pl) renderPlaylistHead(c, pl);
   else { renderFilters(); requestAnimationFrame(updateChipNav); }
 
@@ -1615,7 +1715,7 @@ function showNewSongsNote() {
   txt.append(el("p", null, names + (unseen.length > 4 ? " " + t("nsMore", { n: unseen.length - 4 }) : "")));
   const go = el("button", "btn", t("nsBtn"));
   const seen = () => { try { localStorage.setItem(KEY, recentNew[0].added); } catch (e) {} box.remove(); };
-  go.onclick = () => { seen(); newOnly = true; view = "all"; yearFilter = programFilter = query = ""; $("search").value = ""; render(); window.scrollTo({ top: 0 }); };
+  go.onclick = () => { seen(); newOnly = false; view = "new"; yearFilter = programFilter = query = ""; $("search").value = ""; render(); window.scrollTo({ top: 0 }); };
   txt.append(go);
   const x = el("button", "x", "×"); x.setAttribute("aria-label", "Close"); x.onclick = seen;
   box.append(txt, x);
