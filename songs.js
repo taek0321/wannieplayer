@@ -469,5 +469,11 @@ const SONGS = [
   { file: "EX-2024 - bubble.mp3", title: "EX", original: "Kiana Ledé", year: 2024, program: "bubble", added: "2026-11-15" },
   { file: "Love on Top-2024 - bubble.mp3", title: "Love On Top", original: "Beyoncé", year: 2024, program: "bubble", added: "2026-11-15" },
   { file: "When Flowering Spring Comes-2025 - bubble.mp3", title: "When Flowering Spring Comes", original: "BMK", year: 2025, program: "bubble", added: "2026-11-15" },
-  { file: "When This Rain Stops (Inst.).mp3", title: "When This Rain Stops (Inst.)", original: "WENDY", year: 2021, program: "LP Exclusive", added: "2026-11-15" }
+  { file: "When This Rain Stops (Inst.).mp3", title: "When This Rain Stops (Inst.)", original: "WENDY", year: 2021, program: "LP Exclusive", added: "2026-11-15" },
+  { file: "I Have Nothing (260801)-2026-Live Performance.mp3", title: "I Have Nothing (260801)", original: "Whitney Houston", year: 2026, program: "Live Performance", added: "2026-11-19" },
+  { file: "Illusion-2026-ENCORE.mp3", title: "Illusion", original: "Park Ji-yoon", year: 2026, program: "W:EALIVE ENCORE", added: "2026-11-19" },
+  { file: "Something Like That-2026-ENCORE.mp3", title: "Something Like That", original: "Hwayobi", year: 2026, program: "W:EALIVE ENCORE", added: "2026-11-19" },
+  { file: "Daydream-2026-Wendy's Young Street S2.mp3", title: "Daydream", original: "WENDY", year: 2026, program: "Wendy's Young Street S2", added: "2026-11-19" },
+  { file: "Chapter You-2026-Wendy's Young Street S2.mp3", title: "Chapter You", original: "WENDY", year: 2026, program: "Wendy's Young Street S2", added: "2026-11-19" },
+  { file: "Vermillion-2026-ENCORE.mp3", title: "Vermilion", original: "WENDY", year: 2026, program: "W:EALIVE ENCORE", added: "2026-11-19" }
 ];
