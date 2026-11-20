@@ -96,7 +96,6 @@ const TRANSLATIONS = {
     "Fall in Love With You": ["좋다", "真好", "真好"],
     "Coming of Age Story": ["청춘만화", "青春漫画", "青春漫畫"],
     "Thanks": ["감사", "感谢", "感謝"],
-    "Last Love (2026 ver.)": ["마지막 사랑", "末爱", "末愛"],
     "To My Youth": ["나의 사춘기에게", "致我的思春期", "致我的思春期"],
     "Every Day, Every Moment": ["모든 날, 모든 순간", "每日每刻", "每日每刻"],
     "Don’t Like Her": ["그 애 참 싫다", "真的讨厌她", "真的討厭她"],
@@ -189,7 +188,8 @@ const TRANSLATIONS = {
     "Love Alone - WENDY & Kim Hyun Jung.mp3": ["혼자한 사랑", "孤独的爱", "孤獨的愛"],
     "Last Love_Instagram Live_2019.mp3": ["마지막 사랑 (190707)", "末爱 (190707)", "末愛 (190707)"],
     "Last Love _Happy Wendy Day_2024.mp3": ["마지막 사랑", "末爱", "末愛"],
-    "Last Love_Fansign_2025.mp3": ["마지막 사랑", "末爱", "末愛"]
+    "Last Love_Fansign_2025.mp3": ["마지막 사랑", "末爱", "末愛"],
+    "Last Love (2026 ver.) - fromm.mp3": ["마지막 사랑", "末爱", "末愛"]
   },
   singers: {
     "Ailee": ["에일리", null, null],
