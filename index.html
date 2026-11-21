@@ -524,6 +524,7 @@ dialog { max-height: 82vh; overflow-y: auto; }
           <option value="ko">한국어</option>
           <option value="zh-Hans">简体中文</option>
           <option value="zh-Hant">繁體中文</option>
+          <option value="ja">日本語</option>
         </select>
       </label>
       <label class="lang">
@@ -678,7 +679,7 @@ const PAUSE_PATH = "M6 5h4v14H6zm8 0h4v14h-4z";
 // "bottom" (above the version line), "search" (when a search finds nothing)
 const REQUEST_URL = "https://tally.so/r/RWWWr4";
 const REQUEST_SPOTS = ["top"];
-const VERSION = "2026-11-19 v44";
+const VERSION = "2026-11-21 v45";
 const UI = {
   en: {
     share: "Share song", linkCopied: "Link copied", shareText: "{title} · Wannie’s Music Archive", sharedReady: "Shared song ready. Tap play to listen",
@@ -731,6 +732,32 @@ const UI = {
     nsTitle: "🆕 새로운 곡 {n}곡이 추가됐어요", nsTitle1: "🆕 새로운 곡 1곡이 추가됐어요", nsMore: "외 {n}곡", nsBtn: "새 곡 보기", nsBadge: "NEW", nsBar: "최근 30일 동안 추가된 {n}곡", nsAll: "전체 곡 보기",
     tabNew: "새로운 곡", newIntro: "최근 30일 동안 추가된 곡이에요. 최신순으로 보여요.", newGroup: "{date} 추가", newEmpty: "최근 30일 동안 추가된 곡이 없어요.", tabCovers: "최다 커버", covIntro: "웬디가 {n}번 이상 부른 다른 가수의 곡이에요. 곡을 누르면 모든 버전을 볼 수 있어요.", covRec: "{n}개 버전",
     tabTop: "나의 Top 10", topTitle: "나의 Top 10 · {y}", topTotal: "{y}년에 {n}곡을 들었어요", topDistinct: "서로 다른 {n}곡", topPlays: "{n}회", topPlay1: "1회", topEmpty: "{y}년에 기록된 재생이 아직 없어요. 30초 이상 들은 곡부터 기록돼요.", topPlayAll: "▶ 전체 재생", topShare: "나의 Top 10 공유", topNote: "이 기기에서만, 이 기능이 추가된 날부터 기록돼요. 어디에도 전송되지 않아요.", shTitle: "나의 Top 10 공유", shSave: "이미지를 길게 눌러 저장하세요.", shShare: "공유", shCopy: "텍스트 복사", shCopied: "복사했어요!", shDone: "완료", bkHead: "백업 및 복원", bkInfo: "좋아요, 플레이리스트, Top 10을 다른 휴대폰이나 주소로 옮길 수 있어요.", bkMake: "백업 코드 만들기", bkLoad: "코드로 복원", bkMakeTitle: "백업 코드", bkMakeInfo: "이 코드를 복사해 안전한 곳(예: 메모)에 보관하세요. 다른 휴대폰에서 “코드로 복원”에 붙여 넣으면 돼요.", bkLoadTitle: "코드로 복원", bkLoadInfo: "백업 코드를 붙여 넣으세요. 좋아요, 플레이리스트, Top 10이 지금 있는 것에 더해지며, 아무것도 삭제되지 않아요.", bkPaste: "여기에 코드를 붙여 넣으세요", bkRestore: "복원", bkOk: "복원했어요! 좋아요, 플레이리스트, Top 10이 추가됐어요.", bkBad: "코드가 올바르지 않아요. 코드 전체를 복사해서 다시 시도해 주세요."
+  },
+  ja: {
+    share: "曲をシェア", linkCopied: "リンクをコピーしました", shareText: "{title} · Wannie’s Music Archive", sharedReady: "シェアされた曲です。再生ボタンを押して聴いてください",
+    playNext: "次に再生", addQueue: "再生キューに追加", addedQueue: "再生キューに追加しました", addedNext: "次に再生します", queueTitle: "再生キュー", nowPlaying: "再生中", upNextQueue: "キューの次の曲", upNextList: "リストの次の曲", clearQueue: "キューをクリア", queueEmpty: "キューは空です。曲の横の + を押して追加できます。", addToPlaylist: "プレイリストに追加", openQueue: "再生キューを開く", removeQ: "キューから削除", nothingPlaying: "まだ何も再生していません。",
+    tabAll: "すべての曲", tabPrograms: "番組", tabLiked: "お気に入り", tabLists: "プレイリスト",
+    search: "曲名・歌手で検索…", sortNew: "新しい順", sortOld: "古い順", sortAz: "A–Z",
+    allYears: "すべての年", allPrograms: "すべての番組", originalBy: "原曲：{name}",
+    pick: "曲を選んで再生", songsN: "{n}曲", song1: "1曲",
+    like: "{title} をお気に入りに追加", unlike: "{title} をお気に入りから削除", add: "{title} をプレイリストに追加", remove: "{list} から {title} を削除",
+    showFrom: "{x} の曲を表示", newListPh: "新しいプレイリスト名", createList: "プレイリストを作成",
+    noLists: "まだプレイリストがありません。上で名前を入力するか、曲の横の + を押して作成できます。",
+    allLists: "‹ すべてのプレイリスト", playAll: "すべて再生", rename: "名前を変更", del: "削除", renamePrompt: "プレイリスト名を変更",
+    delConfirm: "「{name}」を削除しますか？曲はアーカイブに残ります。",
+    emptyList: "このプレイリストは空です。「すべての曲」で曲の横の + を押して追加してください。",
+    emptyLiked: "お気に入りの曲はまだありません。曲の横のハートを押すとここに保存されます。",
+    noMatch: "条件に合う曲がありません。", clear: "絞り込みを解除",
+    sheetTitle: "「{title}」をプレイリストに追加", sheetNone: "まだプレイリストがありません。下で名前を入力して作成してください。",
+    sheetNew: "新しいプレイリスト名", create: "作成", done: "完了",
+    programsIntro: "番組を押すと、その番組の曲が表示されます。",
+    errMissing: "{where} が見つかりません。", errBroken: "{where} を再生できません。", errOffline: "{where} を読み込めませんでした。インターネット接続を確認してください。",
+    skipping: "次の曲へスキップします…", version: "プレーヤーのバージョン {v}", preDebut: "デビュー前", language: "言語",
+    reqTop: "🩵 曲をリクエスト", reqFind: "曲が見つかりませんか？", reqHere: "こちらからリクエスト", reqWant: "追加してほしいですか？",
+    selSelect: "選択", selN: "{n}曲を選択中", selAll: "すべて選択", selAdd: "プレイリストに追加", selCancel: "キャンセル", selSheet: "{n}曲をプレイリストに追加",
+    nsTitle: "🆕 新しい曲が{n}曲追加されました", nsTitle1: "🆕 新しい曲が1曲追加されました", nsMore: "ほか{n}曲", nsBtn: "新しい曲を見る", nsBadge: "NEW", nsBar: "新しい曲 {n}曲を表示中 · 過去30日間", nsAll: "すべての曲を表示",
+    tabNew: "新着", newIntro: "過去30日間に追加された曲です。新しい順に表示しています。", newGroup: "{date} 追加", newEmpty: "過去30日間に追加された曲はありません。", tabCovers: "最多カバー", covIntro: "Wendy が{n}回以上歌った、ほかの歌手の曲です。曲を押すと、すべてのバージョンが表示されます。", covRec: "{n}バージョン",
+    tabTop: "マイ Top 10", topTitle: "マイ Top 10 · {y}", topTotal: "{y}年に{n}回再生しました", topTotal1: "{y}年に1回再生しました", topDistinct: "{n}曲", topDistinct1: "1曲", topPlays: "{n}回", topPlay1: "1回", topEmpty: "{y}年の再生記録はまだありません。30秒以上聴くと1回としてカウントされます。", topPlayAll: "▶ すべて再生", topShare: "マイ Top 10 をシェア", topNote: "この端末だけで、この機能が追加された日からカウントしています。どこにも送信されません。", shTitle: "マイ Top 10 をシェア", shSave: "画像を長押しすると保存できます。", shShare: "シェア", shCopy: "テキストをコピー", shCopied: "コピーしました！", shDone: "完了", bkHead: "バックアップと復元", bkInfo: "お気に入り、プレイリスト、Top 10 をほかのスマホや新しいアドレスに移せます。", bkMake: "バックアップコードを作成", bkLoad: "コードから復元", bkMakeTitle: "バックアップコード", bkMakeInfo: "このコードをコピーして、メモなど安全な場所に保管してください。ほかのスマホの「コードから復元」に貼り付けてください。", bkLoadTitle: "コードから復元", bkLoadInfo: "バックアップコードを貼り付けてください。お気に入り、プレイリスト、Top 10 は今のデータに追加され、何も削除されません。", bkPaste: "ここにコードを貼り付け", bkRestore: "復元", bkOk: "復元しました！お気に入り、プレイリスト、Top 10 を追加しました。", bkBad: "コードが正しくないようです。コード全体をコピーして、もう一度お試しください。"
   },
   "zh-Hans": {
     share: "分享歌曲", linkCopied: "链接已复制", shareText: "{title} · Wannie’s Music Archive", sharedReady: "已打开分享的歌曲，点击播放即可收听",
@@ -792,6 +819,7 @@ function detectLang() {
   if (saved && UI[saved]) return saved;
   const n = (navigator.language || "en").toLowerCase();
   if (n.startsWith("ko")) return "ko";
+  if (n.startsWith("ja")) return "ja";
   if (n.startsWith("zh")) return /tw|hk|mo|hant/.test(n) ? "zh-Hant" : "zh-Hans";
   return "en";
 }
@@ -809,12 +837,12 @@ function t(key, vars) {
 const songsN = n => n === 1 ? t("song1") : t("songsN", { n });
 const TR = typeof TRANSLATIONS !== "undefined" ? TRANSLATIONS : {};
 function trans(map, key) {
-  if (lang === "en" || !key) return key;
+  if (!(lang in LANG_COL) || !key) return key;      // English and Japanese show the English song data
   const row = map && map[key];
   return (row && row[LANG_COL[lang]]) || key;
 }
 function dTitle(s) {
-  if (lang === "en") return s.title;
+  if (!(lang in LANG_COL)) return s.title;
   const f = TR.titleByFile && TR.titleByFile[s.file];
   return (f && f[LANG_COL[lang]]) || trans(TR.titles, s.title);
 }
@@ -924,7 +952,8 @@ const THEME_TEXT = {
   en: { label: "Appearance", auto: "◐ Auto", light: "☀ Light", dark: "☾ Dark" },
   ko: { label: "화면 모드", auto: "◐ 자동", light: "☀ 라이트", dark: "☾ 다크" },
   "zh-Hans": { label: "外观", auto: "◐ 自动", light: "☀ 浅色", dark: "☾ 深色" },
-  "zh-Hant": { label: "外觀", auto: "◐ 自動", light: "☀ 淺色", dark: "☾ 深色" }
+  "zh-Hant": { label: "外觀", auto: "◐ 自動", light: "☀ 淺色", dark: "☾ 深色" },
+  ja: { label: "表示モード", auto: "◐ 自動", light: "☀ ライト", dark: "☾ ダーク" }
 };
 function themeChoice() { try { const v = localStorage.getItem("wma-theme"); return v === "light" || v === "dark" ? v : "auto"; } catch (e) { return "auto"; } }
 function applyTheme() {
@@ -1323,6 +1352,17 @@ const DLT = {
     prog: "Downloading {i} of {n} · {p}%", keep: "Keep the app open until this finishes.", stop: "Stop", stopped: "Stopped. {d} of {n} downloaded.", done: "✓ Done: {n} songs ready offline.",
     card: "⬇ Downloaded songs", cardSome: "{n} songs · {size} on this device", cardNone: "None yet. Open Liked or a playlist to download songs for offline listening.",
     manage: "Manage", mTitle: "Downloaded songs", rm: "Remove", rmAll: "Remove all", rmAllConfirm: "Remove all downloaded songs from this device?", doneBtn: "Done", mark: "Downloaded" },
+  ja: { checking: "容量を確認中…", noSpace: "この端末の空き容量が足りません。約 {size} 必要です。ダウンロードを一部削除するか、空き容量を増やしてから、もう一度お試しください。", failed: "{n}曲をダウンロードできませんでした。インターネット接続を確認して、もう一度ダウンロードを押してください。", unsupported: "このブラウザはダウンロードに対応していません。", btn: "⬇ ダウンロード", nOfM: "<b>{n}曲中 {d}曲</b> ダウンロード済み", all: "✓ <b>{n}曲すべてダウンロード済み</b> · {size}", rmDl: "ダウンロードを削除",
+    rmConfirm: "これらの曲のダウンロードを削除しますか？曲は{where}に残りますが、再生にはインターネットが必要になります。", whereLiked: "お気に入り", wherePl: "このプレイリスト",
+    title1: "{where}から1曲をダウンロードしますか？", titleN: "{where}から{n}曲をダウンロードしますか？", size: "この端末に約 {size} が保存され、インターネットなしで再生できるようになります。",
+    wOpen: "⚠️ <b>ダウンロードが終わるまでアプリを開いたままにしてください。</b>アプリを閉じたり、画面をロックしたり、ほかのアプリに切り替えたりすると、ダウンロードが止まります。",
+    wIos: "📱 <b>iPhone では、ホーム画面のアプリでのみダウンロードできます。</b>Safari のタブでは、約1週間で削除されることがあります。",
+    wIosBrowser: "今はブラウザで開いています。先にプレーヤーをホーム画面に追加して（共有 → ホーム画面に追加）、そこでダウンロードしてください。",
+    wAndroid: "💾 ダウンロードした曲は、削除するか、ブラウザの設定でこのサイトのデータを消去するまで残ります。",
+    wData: "📶 モバイルデータ通信では、約 <b>{size}</b> のデータを使用します。", cancel: "キャンセル", go: "ダウンロード",
+    prog: "{n}曲中 {i}曲目をダウンロード中 · {p}%", keep: "終わるまでアプリを開いたままにしてください。", stop: "停止", stopped: "停止しました。{n}曲中 {d}曲をダウンロード済みです。", done: "✓ 完了：{n}曲をオフラインで再生できます。",
+    card: "⬇ ダウンロードした曲", cardSome: "{n}曲 · この端末に {size}", cardNone: "まだありません。お気に入りかプレイリストを開くと、オフライン用に曲をダウンロードできます。",
+    manage: "管理", mTitle: "ダウンロードした曲", rm: "削除", rmAll: "すべて削除", rmAllConfirm: "ダウンロードしたすべての曲をこの端末から削除しますか？", doneBtn: "完了", mark: "ダウンロード済み" },
   ko: { checking: "용량 확인 중…", noSpace: "이 기기에 저장 공간이 부족해요. 약 {size}가 필요해요. 다운로드 일부를 삭제하거나 공간을 확보한 뒤 다시 시도하세요.", failed: "{n}곡을 다운로드하지 못했어요. 인터넷 연결을 확인하고 다시 다운로드를 눌러 주세요.", unsupported: "이 브라우저에서는 다운로드를 지원하지 않아요.", btn: "⬇ 다운로드", nOfM: "<b>{n}곡 중 {d}곡</b> 다운로드됨", all: "✓ <b>{n}곡 모두 다운로드됨</b> · {size}", rmDl: "다운로드 삭제",
     rmConfirm: "이 곡들의 다운로드를 삭제할까요? {where}에는 그대로 남고, 다시 인터넷으로 재생돼요.", whereLiked: "좋아요 목록", wherePl: "이 플레이리스트",
     title1: "{where}에서 1곡을 다운로드할까요?", titleN: "{where}에서 {n}곡을 다운로드할까요?", size: "약 {size}가 이 기기에 저장되어 인터넷 없이도 들을 수 있어요.",
@@ -2601,6 +2641,7 @@ if ("serviceWorker" in navigator) {
     en: ["Welcome to our new address! 🩵", "Your likes and playlists have been moved here. If you use the player from your home screen, please add this page to your home screen again.", "OK"],
     ko: ["새 주소에 오신 걸 환영해요! 🩵", "좋아요와 플레이리스트를 이곳으로 옮겨 왔어요. 홈 화면에서 플레이어를 사용하셨다면, 이 페이지를 홈 화면에 다시 추가해 주세요.", "확인"],
     "zh-Hans": ["欢迎来到我们的新网址！🩵", "你的喜欢和歌单已经搬到这里了。如果你是从主屏幕使用播放器，请把这个页面重新添加到主屏幕。", "好的"],
+    ja: ["新しいアドレスへようこそ！🩵", "お気に入りとプレイリストはこちらに移しました。ホーム画面からプレーヤーを使っている場合は、このページをもう一度ホーム画面に追加してください。", "OK"],
     "zh-Hant": ["歡迎來到我們的新網址！🩵", "你的喜歡和歌單已經搬到這裡了。如果你是從主畫面使用播放器，請把這個頁面重新加入主畫面。", "好的"]
   };
   var t = T[(typeof lang !== "undefined" && T[lang]) ? lang : "en"];
