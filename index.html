@@ -679,7 +679,7 @@ const PAUSE_PATH = "M6 5h4v14H6zm8 0h4v14h-4z";
 // "bottom" (above the version line), "search" (when a search finds nothing)
 const REQUEST_URL = "https://tally.so/r/RWWWr4";
 const REQUEST_SPOTS = ["top"];
-const VERSION = "2026-11-21 v45";
+const VERSION = "2026-11-23 v46";
 const UI = {
   en: {
     share: "Share song", linkCopied: "Link copied", shareText: "{title} · Wannie’s Music Archive", sharedReady: "Shared song ready. Tap play to listen",
@@ -1036,7 +1036,12 @@ function getVisible() {
   if (!pl) {
     if (sortBy === "az") list.sort((a, b) => dTitle(a).localeCompare(dTitle(b), lang));
     else if (sortBy === "old") list.sort((a, b) => yearKey(a.year) - yearKey(b.year) || a.i - b.i);
-    else list.sort((a, b) => yearKey(b.year) - yearKey(a.year) || a.i - b.i);
+    else {
+      // "Newest": the latest batch of added songs goes first, then everything by year
+      const latest = songs.reduce((m, s) => (s.added && s.added > m ? s.added : m), "");
+      const top = s => (latest && s.added === latest ? 1 : 0);
+      list.sort((a, b) => top(b) - top(a) || yearKey(b.year) - yearKey(a.year) || a.i - b.i);
+    }
   }
   return list;
 }
