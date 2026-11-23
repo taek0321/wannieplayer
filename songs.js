@@ -477,7 +477,7 @@ const SONGS = [
   { file: "Chapter You-2026-Wendy's Young Street S2.mp3", title: "Chapter You (Power 30)", original: "WENDY", year: 2026, program: "Wendy's Young Street S2", added: "2026-11-19" },
   { file: "Vermillion-2026-ENCORE.mp3", title: "Vermilion", original: "WENDY", year: 2026, program: "W:EALIVE ENCORE", added: "2026-11-19" },
   { file: "Before Sunrise-2026-Wendy's Young Street S2.mp3", title: "Before Sunrise", original: "WENDY", year: 2026, program: "Wendy's Young Street S2", added: "2026-11-23" },
-  { file: "Mise en scène-2026-Challenge.mp3", title: "Mise en scène", original: "Davichi", year: 2026, program: "Challenge", added: "2026-11-23" },
   { file: "Before Sunrise-2026-Challenge.mp3", title: "Before Sunrise", original: "WENDY", year: 2026, program: "Challenge", added: "2026-11-23" },
-  { file: "Special Dust-2026-Wendy's Young Street S2.mp3", title: "Special Dust", original: "WENDY", year: 2026, program: "Wendy's Young Street S2", added: "2026-11-23" }
+  { file: "Special Dust-2026-Wendy's Young Street S2.mp3", title: "Special Dust", original: "WENDY", year: 2026, program: "Wendy's Young Street S2", added: "2026-11-23" },
+  { file: "Mise en scène-2026-Challenge.mp3", title: "Mise en scène", original: "Davichi", year: 2026, program: "Challenge", added: "2026-11-23" }
 ];
